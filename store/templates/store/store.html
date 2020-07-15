@@ -1,0 +1,79 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v4.0.1">
+    <title>carousel</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/carousel/">
+	<link href="../assets/dist/css/bootstrap.css" rel="stylesheet">
+
+	</style>
+	
+
+
+<link href="carousel.css" rel="stylesheet">
+  </head>
+  <body>
+    
+
+	
+
+  <!-- Marketing messaging and featurettes
+  ================================================== -->
+  <!-- Wrap the rest of the page in another container to center all the content. -->
+
+  <div class="container marketing">
+
+	<br>
+	<br>
+    <div class="row">
+	  	<div class="col-lg-12">
+        <h2>Choose your Investment</h2>
+        <p>Choose your suitable investment from our selection of properties.Invest in real estate for as little as €100,000 and benefit from the advantages of digital real estate investment</p>
+        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+      </div>
+  </div>
+<br>
+<br>
+<div class="row">
+    {% for product in products %}
+	<div class="col-lg-4">
+		<img class="thumbnail" src="{{product.imageURL}}">
+	<div class="box-element product">
+		<h6><strong>{{product.name}}</strong></h6>
+		<hr>
+
+		<button data-product={{product.id}} data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+		<a class="btn btn-outline-success" href="#">View</a>
+		<h4 style="display: inline-block; float:right"><strong>${{product.price| floatformat:2 }}</strong></h4>
+
+	</div>
+	
+	</div>
+	{% endfor %}
+</div>
+
+<br>
+<br>
+
+<footer>
+	<footer class="container">
+		<p class="float-right"><a href="#">Back to top</a></p>
+		<p>&copy; 2017-2020 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+	  </footer>
+	</main>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+		  <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="../assets/dist/js/bootstrap.bundle.js"></script></body>
+	</html>
+</footer>
+
+{% endblock content %}
+
